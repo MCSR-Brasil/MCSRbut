@@ -26,7 +26,7 @@
 /execute at @a run setblock ~ 232 ~34 obsidian;
 /gamerule spawnRadius 6;
 /setworldspawn ~ ~230 ~;
-/execute at @a run tp @s ~1 231 ~;
+/execute at @a run tp @s ~1 230 ~;
 /execute at @a run give @s oak_sapling 2;
 /execute at @a run give @s bone_meal 32;
 /execute at @a run give @s lava_bucket 1;

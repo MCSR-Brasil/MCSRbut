@@ -20,4 +20,4 @@
 /execute at @a run setblock ~ ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @e[type=arrow,tag=tpLinked,tag=!tpDone,nbt={inGround:1b,Color:3381504}] run tag @s add tpDone",auto:1b};
 /execute at @a run setblock ~ ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"kill @e[type=arrow,tag=tpDone,nbt={Color:3381504}]",auto:1b};
 
-/execute at @a run tellraw @a ["",{"text":"Ender Arrows","bold":true,"color":"aqua"},{"text":"\nYou got a Bow and Ender Arrows. They work like Ender Pearls, but you still take fall damage. Good Luck","color":"green"}];
+/execute at @a run tellraw @a ["",{"text":"Ender Arrows","bold":true,"color":"aqua"},{"text":"\nYou got a Bow and Ender Arrows. They work like Ender Pearls, but no damage","color":"green"}];

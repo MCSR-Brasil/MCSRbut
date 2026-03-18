@@ -166,6 +166,10 @@
 /execute at @a run setblock ~10 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
 /execute at @a run setblock ~10 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run scoreboard players set @s challengeDone 1",auto:1b};
 
+/execute at @a run setblock ~10 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
+/execute at @a run setblock ~10 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~10 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run scoreboard players set @s challengeDone 1",auto:1b};
+
 /execute at @a run setblock ~11 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=600,challengeDone=0}] run tellraw @s {\"text\":\"Challenge failed. You were too slow.\",\"color\":\"red\"}",auto:1b};
 /execute at @a run setblock ~11 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=600,challengeDone=0}] run kill @s",auto:1b};
 
