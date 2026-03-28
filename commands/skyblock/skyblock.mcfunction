@@ -26,10 +26,10 @@
 /execute at @a run setblock ~ 232 ~34 obsidian;
 /gamerule spawnRadius 6;
 /setworldspawn ~ ~230 ~;
-/execute at @a run tp @s ~1 230 ~;
+/execute at @a run tp @s ~2 230 ~;
 /execute at @a run give @s oak_sapling 2;
 /execute at @a run give @s bone_meal 32;
 /execute at @a run give @s lava_bucket 1;
 /execute at @a run give @s ice 1;
 /execute at @a run give @s carrot 6;
-/tellraw @a ["",{"text":"Skyblock!","color":"green","bold":true},{"text":"\n"},{"text":"Você recebeu os itens básicos.","color":"yellow"},{"text":"\n"}];
+/tellraw @a ["",{"text":"Skyblock!","color":"green","bold":true},{"text":"\n"},{"text":"You have the basic items","color":"yellow"},{"text":"\n"}];

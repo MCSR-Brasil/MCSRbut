@@ -15,6 +15,10 @@
 /execute run scoreboard objectives add mineNetherrackBase dummy;
 /execute run scoreboard objectives add mineEndStoneBase dummy;
 /execute run scoreboard objectives add pickBase dummy;
+/execute run scoreboard objectives add mineGrassBase dummy;
+/execute run scoreboard objectives add killEndermanBase dummy;
+/execute run scoreboard objectives add mineGoldBase dummy;
+
 /execute run scoreboard objectives add jump minecraft.custom:minecraft.jump;
 /execute run scoreboard objectives add walk minecraft.custom:minecraft.walk_one_cm;
 /execute run scoreboard objectives add sprint minecraft.custom:minecraft.sprint_one_cm;
@@ -25,12 +29,15 @@
 /execute run scoreboard objectives add mineStone minecraft.mined:minecraft.stone;
 /execute run scoreboard objectives add mineNetherrack minecraft.mined:minecraft.netherrack;
 /execute run scoreboard objectives add mineEndStone minecraft.mined:minecraft.end_stone;
+/execute run scoreboard objectives add mineGrass minecraft.mined:minecraft.grass_block;
+/execute run scoreboard objectives add mineGold minecraft.mined:minecraft.nether_gold_ore;
 /execute run scoreboard objectives add pickWood minecraft.used:minecraft.wooden_pickaxe;
 /execute run scoreboard objectives add pickStone minecraft.used:minecraft.stone_pickaxe;
 /execute run scoreboard objectives add pickIron minecraft.used:minecraft.iron_pickaxe;
 /execute run scoreboard objectives add pickGold minecraft.used:minecraft.golden_pickaxe;
 /execute run scoreboard objectives add pickDiamond minecraft.used:minecraft.diamond_pickaxe;
 /execute run scoreboard objectives add pickNetherite minecraft.used:minecraft.netherite_pickaxe;
+/execute run scoreboard objectives add killEnderman minecraft.killed:minecraft.enderman;
 
 /execute run scoreboard players set global range 10;
 /execute run scoreboard players set @a challengeTimer -400;
@@ -47,6 +54,9 @@
 /execute run scoreboard players set @a mineNetherrackBase 0;
 /execute run scoreboard players set @a mineEndStoneBase 0;
 /execute run scoreboard players set @a pickBase 0;
+/execute run scoreboard players set @a mineGrassBase 0;
+/execute run scoreboard players set @a mineGoldBase 0;
+/execute run scoreboard players set @a killEndermanBase 0;
 
 /execute at @a run setblock ~ ~-50 ~ minecraft:repeating_command_block[facing=south]{Command:"execute as @a run scoreboard players add @s challengeTimer 1",auto:1b};
 /execute at @a run setblock ~ ~-50 ~1 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=1800..}] run scoreboard players set @s challengeTimer 0",auto:1b};
@@ -99,6 +109,9 @@
 /execute at @a run setblock ~ ~-50 ~46 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=0,challengeID=8},nbt={Dimension:\"minecraft:the_end\"}] run title @s subtitle {\"text\":\"Mine 4 End Stone\",\"color\":\"yellow\",\"bold\":true}",auto:1b};
 /execute at @a run setblock ~ ~-50 ~47 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=0,challengeID=9}] run title @s subtitle {\"text\":\"Jump 100 Times\",\"color\":\"red\",\"bold\":true}",auto:1b};
 /execute at @a run setblock ~ ~-50 ~48 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=0,challengeID=9}] run title @s title {\"text\":\"!\",\"color\":\"red\",\"bold\":true}",auto:1b};
+/execute at @a run setblock ~ ~-50 ~49 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=0,challengeID=10},nbt={Dimension:\"minecraft:overworld\"}] run title @s subtitle {\"text\":\"Touch(Mine) Grass\",\"color\":\"green\",\"bold\":true}",auto:1b};
+/execute at @a run setblock ~ ~-50 ~50 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=0,challengeID=10},nbt={Dimension:\"minecraft:the_nether\"}] run title @s subtitle {\"text\":\"Mine gold ore\",\"color\":\"red\",\"bold\":true}",auto:1b};
+/execute at @a run setblock ~ ~-50 ~51 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=0,challengeID=10},nbt={Dimension:\"minecraft:the_end\"}] run title @s subtitle {\"text\":\"Kill 1 Enderman\",\"color\":\"yellow\",\"bold\":true}",auto:1b};
 
 
 /execute at @a run setblock ~1 ~-50 ~ minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=0}] run scoreboard players operation @s challengeScore = @s jump",auto:1b};
@@ -131,46 +144,52 @@
 /execute at @a run setblock ~11 ~-50 ~1 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=8},nbt={Dimension:\"minecraft:the_end\"}] run scoreboard players operation @s challengeScore -= @s mineEndStoneBase",auto:1b};
 /execute at @a run setblock ~12 ~-50 ~ minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9}] run scoreboard players operation @s challengeScore = @s jump",auto:1b};
 /execute at @a run setblock ~12 ~-50 ~1 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9}] run scoreboard players operation @s challengeScore -= @s jumpBase",auto:1b};
+/execute at @a run setblock ~13 ~-50 ~ minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10},nbt={Dimension:\"minecraft:overworld\"}] run scoreboard players operation @s challengeScore = @s mineGrass",auto:1b};
+/execute at @a run setblock ~13 ~-50 ~1 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10},nbt={Dimension:\"minecraft:overworld\"}] run scoreboard players operation @s challengeScore -= @s mineGrassBase",auto:1b};
+/execute at @a run setblock ~14 ~-50 ~ minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10},nbt={Dimension:\"minecraft:the_nether\"}] run scoreboard players operation @s challengeScore = @s mineGold",auto:1b};
+/execute at @a run setblock ~14 ~-50 ~1 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10},nbt={Dimension:\"minecraft:the_nether\"}] run scoreboard players operation @s challengeScore -= @s mineGoldBase",auto:1b};
+/execute at @a run setblock ~15 ~-50 ~ minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10},nbt={Dimension:\"minecraft:the_end\"}] run scoreboard players operation @s challengeScore = @s killEnderman",auto:1b};
+/execute at @a run setblock ~16 ~-50 ~1 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10},nbt={Dimension:\"minecraft:the_end\"}] run scoreboard players operation @s challengeScore -= @s killEndermanBase",auto:1b};
 
 
 /execute at @a run setblock ~1 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=0,challengeDone=0,challengeScore=20..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~1 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=0,challengeDone=0,challengeScore=20..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~1 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=0,challengeDone=0,challengeScore=20..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~1 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=0,challengeDone=0,challengeScore=20..}] run scoreboard players set @s challengeDone 1",auto:1b};
 /execute at @a run setblock ~2 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=1,challengeDone=0,challengeScore=40..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~2 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=1,challengeDone=0,challengeScore=40..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~2 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=1,challengeDone=0,challengeScore=40..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~2 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=1,challengeDone=0,challengeScore=40..}] run scoreboard players set @s challengeDone 1",auto:1b};
 /execute at @a run setblock ~3 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=2,challengeDone=0,challengeScore=5..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~3 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=2,challengeDone=0,challengeScore=5..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~3 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=2,challengeDone=0,challengeScore=5..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~3 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=2,challengeDone=0,challengeScore=5..}] run scoreboard players set @s challengeDone 1",auto:1b};
 /execute at @a run setblock ~4 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=3,challengeDone=0,challengeScore=30..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~4 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=3,challengeDone=0,challengeScore=30..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~4 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=3,challengeDone=0,challengeScore=30..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~4 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=3,challengeDone=0,challengeScore=30..}] run scoreboard players set @s challengeDone 1",auto:1b};
 /execute at @a run setblock ~5 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=4,challengeDone=0,challengeScore=80..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~5 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=4,challengeDone=0,challengeScore=80..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~5 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=4,challengeDone=0,challengeScore=80..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~5 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=4,challengeDone=0,challengeScore=80..}] run scoreboard players set @s challengeDone 1",auto:1b};
 /execute at @a run setblock ~6 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=5,challengeDone=0,challengeScore=8..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~6 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=5,challengeDone=0,challengeScore=8..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~6 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=5,challengeDone=0,challengeScore=8..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~6 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=5,challengeDone=0,challengeScore=8..}] run scoreboard players set @s challengeDone 1",auto:1b};
 /execute at @a run setblock ~7 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=6,challengeDone=0,challengeScore=2000..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~7 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=6,challengeDone=0,challengeScore=2000..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~7 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=6,challengeDone=0,challengeScore=2000..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~7 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=6,challengeDone=0,challengeScore=2000..}] run scoreboard players set @s challengeDone 1",auto:1b};
 /execute at @a run setblock ~8 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=7,challengeDone=0,challengeScore=30..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~8 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=7,challengeDone=0,challengeScore=30..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~8 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=7,challengeDone=0,challengeScore=30..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~8 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=7,challengeDone=0,challengeScore=30..}] run scoreboard players set @s challengeDone 1",auto:1b};
 
 /execute at @a run setblock ~9 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=8,challengeDone=0,challengeScore=12..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~9 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=8,challengeDone=0,challengeScore=12..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~9 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=8,challengeDone=0,challengeScore=12..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~9 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=8,challengeDone=0,challengeScore=12..}] run scoreboard players set @s challengeDone 1",auto:1b};
 
 /execute at @a run setblock ~10 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~10 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
+/execute at @a run setblock ~10 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
 /execute at @a run setblock ~10 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run scoreboard players set @s challengeDone 1",auto:1b};
 
-/execute at @a run setblock ~10 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
-/execute at @a run setblock ~10 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 0.8 1.2",auto:1b};
-/execute at @a run setblock ~10 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=9,challengeDone=0,challengeScore=100..}] run scoreboard players set @s challengeDone 1",auto:1b};
+/execute at @a run setblock ~11 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10,challengeDone=0,challengeScore=1..}] run tellraw @s {\"text\":\"Challenge complete!\",\"color\":\"green\"}",auto:1b};
+/execute at @a run setblock ~11 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10,challengeDone=0,challengeScore=1..}] run playsound minecraft:entity.player.levelup master @a ~ ~ ~ 1.0 1.2",auto:1b};
+/execute at @a run setblock ~11 ~-50 ~10 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeID=10,challengeDone=0,challengeScore=1..}] run scoreboard players set @s challengeDone 1",auto:1b};
 
-/execute at @a run setblock ~11 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=600,challengeDone=0}] run tellraw @s {\"text\":\"Challenge failed. You were too slow.\",\"color\":\"red\"}",auto:1b};
-/execute at @a run setblock ~11 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=600,challengeDone=0}] run kill @s",auto:1b};
+/execute at @a run setblock ~12 ~-50 ~8 minecraft:repeating_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=600,challengeDone=0}] run tellraw @s {\"text\":\"Challenge failed. You were too slow.\",\"color\":\"red\"}",auto:1b};
+/execute at @a run setblock ~12 ~-50 ~9 minecraft:chain_command_block[facing=south]{Command:"execute as @a[scores={challengeTimer=600,challengeDone=0}] run kill @s",auto:1b};
 
 /execute at @a run tellraw @a ["",{"text":"MCSR Ranked Says","bold":true,"color":"gold"},{"text":"\nEvery 90 seconds, a random task appears. You have 30 seconds or you die.","color":"aqua"}];

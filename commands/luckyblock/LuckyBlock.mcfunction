@@ -7,6 +7,8 @@
 /execute run scoreboard objectives add tower1 dummy;
 /execute run scoreboard objectives add tower2 dummy;
 /forceload add 0 0;
+/give @s minecraft:player_head{display:{Name:'{"text":"Lucky Block"}'},SkullOwner:"kim080401"} 64;
+
 
 /execute run scoreboard players set @a luckyblockTimer 0;
 /execute run scoreboard players set @a luckyblockRemain 500;
@@ -90,9 +92,9 @@
 /execute at @a run setblock 0 40 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=30}] at @s run effect give @s minecraft:absorption 120 8 true",auto:1b};
 /execute at @a run setblock 0 41 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=31}] at @s run setblock ~ ~ ~ spawner{SpawnData:{id:\"minecraft:boat\",Type:\"oak\"}} replace",auto:1b};
 /execute at @a run setblock 0 42 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=32}] run give @s minecraft:oak_log 64",auto:1b};
-/execute at @a run setblock 0 43 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=33}] run give @s minecraft:porkchop 16",auto:1b};
+/execute at @a run setblock 0 43 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=33}] run give @s minecraft:bread 16",auto:1b};
 /execute at @a run setblock 0 44 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=34}] at @s run summon iron_golem ~ ~ ~",auto:1b};
-/execute at @a run setblock 0 45 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=35}] run give @s minecraft:dolphin_spawn_egg",auto:1b};
+/execute at @a run setblock 0 45 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=35}] run give @s minecraft:enderman_spawn_egg 6",auto:1b};
 /execute at @a run setblock 0 46 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=36}] run give @s minecraft:jukebox",auto:1b};
 /execute at @a run setblock 0 47 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=36}] run give @s minecraft:music_disc_stal",auto:1b};
 /execute at @a run setblock 0 48 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower1=1..,luckyblockID=37}] run loot give @s loot minecraft:chests/spawn_bonus_chest",auto:1b};
@@ -145,14 +147,14 @@
 /execute at @a run setblock 1 29 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=56}] run tellraw @s {\"text\":\"Keep Inventory in On\",\"color\":\"green\",\"italic\":false}",auto:1b};
 /execute at @a run setblock 1 30 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=56}] run gamerule keepInventory true",auto:1b};
 
-/execute at @a run setblock 1 31 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=57}] run tellraw @s {\"text\":\"Kobe\",\"color\":\"green\",\"italic\":false}",auto:1b};
-/execute at @a run setblock 1 32 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=57}] at @s run summon minecraft:fireball ~ ~2 ~",auto:1b};
+/execute at @a run setblock 1 31 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=57}] run tellraw @s {\"text\":\"\",\"color\":\"green\",\"italic\":false}",auto:1b};
+/execute at @a run setblock 1 32 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=57}] at @s run summon minecraft:fireball ~ ~2 ~1",auto:1b};
 
-/execute at @a run setblock 1 33 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=58}] run tellraw @s {\"text\":\"1.8 combat, Spam click away!\",\"color\":\"green\",\"italic\":false}",auto:1b};
-/execute at @a run setblock 1 34 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=58}] run attribute @a minecraft:generic.attack_speed base set 30",auto:1b};
+/execute at @a run setblock 1 33 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=58}] run tellraw @s {\"text\":\"Everyone is invisible!\",\"color\":\"green\",\"italic\":false}",auto:1b};
+/execute at @a run setblock 1 34 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=58}] run effect give @e minecraft:invisibility 10 10 true",auto:1b};
 
-/execute at @a run setblock 1 35 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=59}] at @s run summon minecraft:ghast ~ ~1 ~",auto:1b};
-/execute at @a run setblock 1 36 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=59}] at @s run summon minecraft:ghast ~2 ~2 ~2",auto:1b};
+/execute at @a run setblock 1 35 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=59}] at @s run summon minecraft:ghast ~-3 ~1 ~-3",auto:1b};
+/execute at @a run setblock 1 36 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=59}] at @s run summon minecraft:ghast ~3 ~2 ~3",auto:1b};
 
 /execute at @a run setblock 1 37 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=60}] at @s run setblock ~ ~ ~ minecraft:water",auto:1b};
 /execute at @a run setblock 1 38 0 minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={tower2=1..,luckyblockID=60}] at @s run effect give @a resistance 12 255",auto:1b};

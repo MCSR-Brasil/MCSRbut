@@ -5,7 +5,7 @@
 /execute run scoreboard objectives add effectID dummy;
 /execute run scoreboard players set @a effectTimer 0;
 /execute run scoreboard players set @a effectRemain 300;
-/execute run scoreboard players set @a range 20;
+/execute run scoreboard players set @a range 25;
 /execute at @a run setblock ~ ~-50 ~ minecraft:repeating_command_block[facing=up]{Command:"execute as @a run scoreboard players add @s effectTimer 1",auto:1b};
 /execute at @a run setblock ~ ~-49 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a run scoreboard players set @s effectRemain 300",auto:1b};
 /execute at @a run setblock ~ ~-48 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a run scoreboard players operation @s effectRemain -= @s effectTimer",auto:1b};
@@ -32,7 +32,7 @@
 /execute at @a run setblock ~ ~-34 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=6}] at @s run effect give @a haste 10 1",auto:1b};
 /execute at @a run setblock ~ ~-33 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=7}] at @s run effect give @e levitation 10 1",auto:1b};
 /execute at @a run setblock ~ ~-32 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=8}] at @s run effect give @a mining_fatigue 10 1",auto:1b};
-/execute at @a run setblock ~ ~-31 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=9}] at @s run effect give @a nausea 10 1",auto:1b};
+/execute at @a run setblock ~ ~-31 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=9}] at @s run effect give @a dolphins_grace 150 1",auto:1b};
 /execute at @a run setblock ~ ~-30 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=10}] at @s run effect give @a slow_falling 10 1",auto:1b};
 /execute at @a run setblock ~ ~-29 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=11}] at @s run effect give @a poison 10 0",auto:1b};
 /execute at @a run setblock ~ ~-28 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=12}] at @s run effect give @a weakness 10 1",auto:1b};
@@ -43,6 +43,15 @@
 /execute at @a run setblock ~ ~-23 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=17}] at @s run effect give @e minecraft:glowing 10 1",auto:1b};
 /execute at @a run setblock ~ ~-22 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=18}] at @s run effect give @a minecraft:absorption 10 1",auto:1b};
 /execute at @a run setblock ~ ~-21 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=19}] at @s run effect give @e levitation 10 1",auto:1b};
+/execute at @a run setblock ~ ~-20 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=20}] at @s run effect give @a speed 10 5",auto:1b};
+/execute at @a run setblock ~ ~-19 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=21}] at @s run effect give @a jump_boost 10 5",auto:1b};
+/execute at @a run setblock ~ ~-18 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=22}] at @s run effect give @a haste 10 5",auto:1b};
+/execute at @a run setblock ~ ~-17 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=23}] at @s run attribute @s minecraft:generic.max_health base set 40",auto:1b};
+/execute at @a run setblock ~ ~-16 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=24}] at @s run effect give @a slow_falling 10 10",auto:1b};
+/execute at @a run setblock ~ ~-15 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={effectTimer=300..,effectID=25}] at @s run effect give @a strength 10 10",auto:1b};
+
+
+
 
 
 
