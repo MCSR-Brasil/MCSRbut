@@ -32,4 +32,4 @@
 /execute at @a run give @s lava_bucket 1;
 /execute at @a run give @s ice 1;
 /execute at @a run give @s carrot 6;
-/tellraw @a ["",{"text":"Skyblock!","color":"green","bold":true},{"text":"\n"},{"text":"You have the basic items","color":"yellow"},{"text":"\n"}];
+/tellraw @a ["",{"text":"Skyblock!","color":"green","bold":true},{"text":"\n"},{"text":"You have the basic items, dont fuck up and dont even try to jump down","color":"yellow"},{"text":"\n"}];

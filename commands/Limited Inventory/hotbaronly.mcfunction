@@ -25,3 +25,5 @@
 /execute at @a run setblock ~ ~-26 ~ minecraft:chain_command_block[facing=up]{Command:"replaceitem entity @a container.33 minecraft:knowledge_book",auto:1b};
 /execute at @a run setblock ~ ~-25 ~ minecraft:chain_command_block[facing=up]{Command:"replaceitem entity @a container.34 minecraft:knowledge_book",auto:1b};
 /execute at @a run setblock ~ ~-24 ~ minecraft:chain_command_block[facing=up]{Command:"replaceitem entity @a container.35 minecraft:knowledge_book",auto:1b};
+
+/tellraw @a ["",{"text":"Hotbar only!","bold":true,"color":"green"},{"text":"\n"},{"text":"Don't touch the inventory! your items will be deleted!","color":"yellow"}];
