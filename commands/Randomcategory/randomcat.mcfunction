@@ -28,11 +28,11 @@
 
 /execute at @a run setblock ~ ~-37 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={categoryTimer=6000..,catID=1}] at @s run speedrunigt start true HALF",auto:1b};
 /execute at @a run setblock ~ ~-36 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={categoryTimer=6000..,catID=1}] at @s run title @s title {\"text\":\"HALF%\"}",auto:1b};
-/execute at @a run setblock ~ ~-35   ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={categoryTimer=6000..,catID=1}] at @s run tellraw @a [\"\",{\"text\":\"Half%\",\"color\":\"green\"},{\"text\":\"\\nComplete 50% of the games achievements, a normal run already completes around 30%, use the advancements tab to help you, or the wiki\"}]",auto:1b};
+/execute at @a run setblock ~ ~-35 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={categoryTimer=6000..,catID=1}] at @s run tellraw @a [\"\",{\"text\":\"Half%\",\"color\":\"green\"},{\"text\":\"\\nComplete 50% of the games achievements, a normal run already completes around 30%, use the advancements tab to help you, or the wiki\"}]",auto:1b};
 
 /execute at @a run setblock ~ ~-34 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={categoryTimer=6000..,catID=2}] at @s run speedrunigt start true KILL_ALL_BOSSES",auto:1b};
 /execute at @a run setblock ~ ~-33 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={categoryTimer=6000..,catID=2}] at @s run title @s title {\"text\":\"ALL BOSSES\"}",auto:1b};
-/execute at @a run setblock ~ ~-32   ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={categoryTimer=6000..,catID=2}] at @s run tellraw @a [\"\",{\"text\":\"All Bosses\",\"color\":\"green\"},{\"text\":\"\\nKILL ALL BOSSES. Dragon, whiter, guardian\"}]",auto:1b};
+/execute at @a run setblock ~ ~-32 ~ minecraft:chain_command_block[facing=up]{Command:"execute as @a[scores={categoryTimer=6000..,catID=2}] at @s run tellraw @a [\"\",{\"text\":\"All Bosses\",\"color\":\"green\"},{\"text\":\"\\nKILL ALL BOSSES. Dragon, whiter, guardian\"}]",auto:1b};
 
 
 
